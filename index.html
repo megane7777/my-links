@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111214">
+  <title>My Links</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#"><span class="brand-mark">M</span><span>MY LINKS</span></a>
+    <div class="top-note">YOUR PERSONAL COLLECTION</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">BOOKMARK YOUR WORLD</p>
+      <h1>お気に入りを、<span>ひとつに。</span></h1>
+      <p class="sub">大切なサイトや、あとで見たいページをまとめて管理。</p>
+      <button class="primary" id="openAdd">＋ リンクを追加</button>
+    </section>
+
+    <section class="toolbar">
+      <label class="search"><span>⌕</span><input id="search" type="search" placeholder="タイトル・URL・タグで検索"></label>
+      <select id="filter"><option value="">すべてのタグ</option></select>
+      <span id="count" class="count">0 LINKS</span>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <section id="empty" class="empty">
+      <div class="empty-icon">↗</div>
+      <h2>まだリンクがありません</h2>
+      <p>「リンクを追加」からお気に入りを登録しよう。</p>
+    </section>
+
+    <p id="saveStatus" class="save-status">このブラウザに自動保存</p>
+    <section class="backup">
+      <div><strong>データのバックアップ</strong><p>JSONファイルに保存したり、以前のバックアップから復元できます。</p></div>
+      <div class="backup-actions">
+        <button class="secondary" id="export">バックアップを書き出す</button>
+        <label class="secondary file-label">バックアップを復元<input id="import" type="file" accept=".json,application/json"></label>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="editor">
+    <form id="linkForm">
+      <div class="dialog-head"><h2 id="dialogTitle">リンクを追加</h2><button type="button" class="x" id="close">×</button></div>
+      <input type="hidden" id="linkId">
+      <label>タイトル<input id="title" required maxlength="80" placeholder="例：お気に入りのサイト"></label>
+      <label>URL<input id="url" type="url" required placeholder="https://example.com"></label>
+      <label>画像URL（任意）<input id="image" type="url" placeholder="https://..."></label>
+      <label>タグ（カンマ区切り）<input id="tags" placeholder="勉強, ゲーム, デザイン"></label>
+      <div class="form-actions"><button type="button" class="secondary" id="cancel">キャンセル</button><button class="primary" type="submit">保存する</button></div>
+    </form>
+  </dialog>
+  <footer>MY LINKS <span>・</span> YOUR SPACE, YOUR LINKS</footer>
+  <script src="script.js"></script>
+</body>
+</html>
